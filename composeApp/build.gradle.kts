@@ -23,11 +23,14 @@ kotlin {
 			implementation(compose.components.uiToolingPreview)
 			implementation(libs.androidx.lifecycle.viewmodelCompose)
 			implementation(libs.androidx.lifecycle.runtimeCompose)
-			implementation(project(":feature:catalog"))
-			implementation(project(":shared:common-di"))
-			implementation(project(":shared:catalog"))
+
 			implementation(libs.koin.compose)
 			implementation(libs.koin.core)
+
+			implementation(project(":component:common-di"))
+			implementation(project(":component:design:theme"))
+			implementation(project(":feature:catalog"))
+			implementation(project(":shared:catalog"))
 		}
 	}
 }

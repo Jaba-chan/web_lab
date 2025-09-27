@@ -27,12 +27,16 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+include(":component")
+include(":component:common-di")
+include(":component:design")
+include(":component:design:async-image")
+include(":component:design:theme")
+include(":composeApp")
 
 include(":feature")
-include(":composeApp")
 include(":feature:catalog")
-include(":feature")
+
 include(":shared:catalog")
-include(":feature:catalog")
-include(":shared:catalog")
-include(":shared:common-di")
+
+

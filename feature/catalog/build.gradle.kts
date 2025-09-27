@@ -11,20 +11,18 @@ plugins {
 kotlin {
 	@OptIn(ExperimentalWasmDsl::class)
 	wasmJs {
-		browser {
-		}
+		browser()
 		binaries.executable()
 	}
 	compilerOptions {
 		languageVersion.set(KotlinVersion.KOTLIN_2_0)
 	}
 	sourceSets {
-		commonMain.dependencies {
+		wasmJsMain.dependencies {
 			implementation(compose.runtime)
 			implementation(compose.foundation)
 			implementation(compose.material3)
 			implementation(compose.ui)
-			implementation(compose.runtime)
 			implementation(compose.components.resources)
 			implementation(compose.components.uiToolingPreview)
 			implementation(libs.androidx.lifecycle.viewmodelCompose)
@@ -32,10 +30,12 @@ kotlin {
 			implementation(libs.koin.compose)
 			implementation(libs.koin.core)
 			implementation(libs.koin.core.wasm.js)
-			implementation("org.jetbrains.skiko:skiko-wasm-js:0.9.24")
 
+			implementation(project(":component:common-di"))
+			implementation(project(":component:design:async-image"))
+			implementation(project(":component:design:theme"))
 			implementation(project(":shared:catalog"))
-			implementation(project(":shared:common-di"))
+
 		}
 	}
 
