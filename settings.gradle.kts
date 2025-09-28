@@ -35,8 +35,8 @@ include(":component:design:theme")
 include(":composeApp")
 
 include(":feature")
+include(":feature:auth")
 include(":feature:catalog")
 
 include(":shared:catalog")
-
-
+include(":shared:auth")

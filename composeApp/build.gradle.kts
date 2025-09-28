@@ -21,6 +21,7 @@ kotlin {
 			implementation(compose.ui)
 			implementation(compose.components.resources)
 			implementation(compose.components.uiToolingPreview)
+			implementation(libs.navigation.compose)
 			implementation(libs.androidx.lifecycle.viewmodelCompose)
 			implementation(libs.androidx.lifecycle.runtimeCompose)
 
@@ -29,7 +30,9 @@ kotlin {
 
 			implementation(project(":component:common-di"))
 			implementation(project(":component:design:theme"))
+			implementation(project(":feature:auth"))
 			implementation(project(":feature:catalog"))
+			implementation(project(":shared:auth"))
 			implementation(project(":shared:catalog"))
 		}
 	}
