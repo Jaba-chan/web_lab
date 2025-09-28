@@ -57,7 +57,9 @@ fun ProductCard(product: Product) {
 
 				Spacer(Modifier.height(8.dp))
 
+				var index = 0
 				product.specs.forEach { (key, value) ->
+					index++
 					Column(modifier = Modifier.padding(vertical = 2.dp)) {
 						Text(
 							text = "$key:",
@@ -65,6 +67,7 @@ fun ProductCard(product: Product) {
 							fontSize = 13.sp
 						)
 						Text(text = value, fontSize = 13.sp)
+						if (index < product.specs.size)
 						HorizontalDivider()
 					}
 				}

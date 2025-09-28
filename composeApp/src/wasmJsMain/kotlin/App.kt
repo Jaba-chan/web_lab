@@ -1,11 +1,9 @@
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import androidx.navigation.NavController
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import navigation.AppNavGraph
 import navigation.Screen
-import ru.evgeny.kuzakov.AuthScreen
+import ru.evgeny.kuzakov.compose.AuthScreen
 import ru.evgeny.kuzakov.compose.CatalogScreen
 import ru.evgeny.kuzakov.theme.DnsTheme
 

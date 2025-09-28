@@ -1,4 +1,4 @@
-package ru.evgeny.kuzakov
+package ru.evgeny.kuzakov.compose
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -21,6 +21,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import ru.evgeny.kuzakov.AuthEffects
+import ru.evgeny.kuzakov.AuthState
+import ru.evgeny.kuzakov.AuthViewModel
+import ru.evgeny.kuzakov.OutlineTextInput
+import ru.evgeny.kuzakov.injectViewModel
 
 @Composable
 fun AuthScreen(
@@ -48,18 +53,18 @@ fun AuthScreen(
 		verticalArrangement = Arrangement.Center,
 		horizontalAlignment = Alignment.CenterHorizontally
 	) {
-		OutlinedTextField(
+		OutlineTextInput(
 			value = state.email,
 			onValueChange = viewModel::handleEmailInput,
-			label = { Text("Email") }
+			label = "Email"
 		)
 
 		Spacer(Modifier.height(8.dp))
 
-		OutlinedTextField(
+		OutlineTextInput(
 			value = state.password,
 			onValueChange = viewModel::handlePasswordInput,
-			label = { Text("Пароль") }
+			label = "Пароль"
 		)
 
 		Spacer(Modifier.height(16.dp))
@@ -68,13 +73,13 @@ fun AuthScreen(
 			is AuthState.Loading -> {
 				CircularProgressIndicator()
 			}
-			is AuthState.Error -> {
+			is AuthState.Error   -> {
 				Text(
 					text = (state as AuthState.Error).message,
 					color = Color.Red
 				)
 			}
-			else -> {}
+			else                 -> {}
 		}
 
 		Spacer(Modifier.height(16.dp))
